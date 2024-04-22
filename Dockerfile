@@ -4,7 +4,6 @@ FROM node:21-alpine as react
 WORKDIR /app
 COPY frontend/package*.json ./
 RUN npm install
-RUN npm install -g nodemon
 
 COPY frontend/ .
 ENV NODE_OPTIONS=--openssl-legacy-provider
