@@ -19,6 +19,18 @@ services:
     networks:
       - internal
 
+  react:
+    build:
+      context: .
+      target: react
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - internal
+
 networks:
  internal:
     driver: bridge

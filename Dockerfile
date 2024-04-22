@@ -10,7 +10,7 @@ COPY frontend/ .
 ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
-CMD ["nodemon", "frontend/src/index.js"]
+CMD ["npm", "start"]
 
 # Setup PHP Backend
 FROM php:8.2-fpm-alpine as php
@@ -37,6 +37,6 @@ COPY --from=php /var/www/html /var/www/html
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 80 9000
+EXPOSE 80 3000 9000
 
 CMD ["nginx", "-g", "daemon off;"]
