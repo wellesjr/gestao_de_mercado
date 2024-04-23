@@ -16,7 +16,7 @@ class UserRepository implements UsuarioInterface
     {
         $sql = 'INSERT INTO users (name, email) VALUES (:name, :email)';
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':name', $user->name);
+        $stmt->bindParam(':nome', $user->nome);
         $stmt->bindParam(':email', $user->email);
         $stmt->execute();
 

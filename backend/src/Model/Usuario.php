@@ -1,12 +1,12 @@
 <?php 
 class Usuario {
     public $id;
-    public $name;
+    public $nome;
     public $email;
 
-    public function __construct($name, $email)
+    public function __construct($nome, $email)
     {
-        $this->name = $name;
+        $this->nome = $nome;
         $this->email = $email;
     }
 }
