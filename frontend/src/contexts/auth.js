@@ -12,14 +12,13 @@ export const AuthProvider = ({ children }) => {
       const hasUser = JSON.parse(usersStorage)?.filter(
         (user) => user.email === JSON.parse(userToken).email
       );
-
       if (hasUser){
         setUser(hasUser[0]);
-      } 
+      }
     }
   }, []);
 
-  const signIn = (email, password) => {
+  const signin = (email, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
     const hasUser = usersStorage?.filter((user) => user.email === email);
 
@@ -37,8 +36,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signUp = (email, password) => {
-    let newUser;
+  const signup = (email, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
     const hasUser = usersStorage?.filter((user) => user.email === email);
 
@@ -46,6 +44,7 @@ export const AuthProvider = ({ children }) => {
       return "Já tem uma conta com esse E-mail";
     }
 
+    let newUser;
     if (usersStorage) {
       newUser = [...usersStorage, { email, password }];
     } else {
@@ -56,14 +55,16 @@ export const AuthProvider = ({ children }) => {
     return;
   };
 
-  const signOut = () => {
+  const signout = () => {
     setUser(null);
     localStorage.removeItem("user_token");
   };
 
   return (
-    <AuthContext.Provider value={{ user, signed: !!user, signIn, signUp, signOut }}>
-        {children}
+    <AuthContext.Provider
+      value={{ user, signed: !!user, signin, signup, signout }}
+    >
+      {children}
     </AuthContext.Provider>
   );
 };

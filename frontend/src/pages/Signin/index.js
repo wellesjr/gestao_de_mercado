@@ -5,8 +5,8 @@ import * as C from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-const Login = () => {
-  const { signIn } = useAuth();
+const Signin = () => {
+  const { signin } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const Login = () => {
       return;
     }
 
-    const res = signIn(email, senha);
+    const res = signin(email, senha);
 
     if (res) {
       setError(res);
@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <C.Container>
-      <C.Label>Gestão de Mercado</C.Label>
+      <C.Label>SISTEMA DE LOGIN</C.Label>
       <C.Content>
         <Input
           type="email"
@@ -50,7 +50,7 @@ const Login = () => {
         <C.LabelSignup>
           Não tem uma conta?
           <C.Strong>
-            <Link to="/registre_se">&nbsp;Registre-se</Link>
+            <Link to="/signup">&nbsp;Registre-se</Link>
           </C.Strong>
         </C.LabelSignup>
       </C.Content>
@@ -58,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;

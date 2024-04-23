@@ -5,14 +5,14 @@ import * as C from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-const Cadastro = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [emailConf, setEmailConf] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const { signUp } = useAuth();
+  const { signup } = useAuth();
 
   const handleSignup = () => {
     if (!email | !emailConf | !senha) {
@@ -23,7 +23,7 @@ const Cadastro = () => {
       return;
     }
 
-    const res = signUp (email, senha);
+    const res = signup(email, senha);
 
     if (res) {
       setError(res);
@@ -36,7 +36,7 @@ const Cadastro = () => {
 
   return (
     <C.Container>
-      <C.Label>Gestão de Mercado</C.Label>
+      <C.Label>SISTEMA DE LOGIN</C.Label>
       <C.Content>
         <Input
           type="email"
@@ -69,4 +69,4 @@ const Cadastro = () => {
   );
 };
 
-export default Cadastro;
+export default Signup;
