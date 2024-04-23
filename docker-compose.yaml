@@ -1,5 +1,19 @@
 version: '3.9'
+
 services:
+
+  database:
+    image: postgres:latest
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: gestaomercado
+      POSTGRES_USER: welles
+      POSTGRES_PASSWORD: 123456
+    networks:
+      - internal
 
   server:
     build:
@@ -7,6 +21,8 @@ services:
       target: nginx
     ports:
       - "8080:80"
+    depends_on:
+      - database
     networks:
       - internal
 
@@ -16,6 +32,9 @@ services:
       target: php
     ports:
       - "9000:9000"
+    depends_on:
+      - database
+      - server
     networks:
       - internal
 
@@ -28,6 +47,8 @@ services:
       - /app/node_modules
     ports:
       - "3000:3000"
+    depends_on:
+      - database
     networks:
       - internal
 

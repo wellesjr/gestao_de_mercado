@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Signup = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [emailConf, setEmailConf] = useState("");
   const [senha, setSenha] = useState("");
@@ -23,7 +24,7 @@ const Signup = () => {
       return;
     }
 
-    const res = signup(email, senha);
+    const res = signup(email, senha,);
 
     if (res) {
       setError(res);
@@ -38,6 +39,12 @@ const Signup = () => {
     <C.Container>
       <C.Label>Gestão de Mercado</C.Label>
       <C.Content>
+      <Input
+          type="text"
+          placeholder="Digite seu Nome"
+          value={name}
+          onChange={(e) => [setName(e.target.value), setError("")]}
+        />
         <Input
           type="email"
           placeholder="Digite seu E-mail"
