@@ -24,7 +24,7 @@ const Signup = () => {
       return;
     }
 
-    const res = signup(email, senha,);
+    const res = signup(email, senha, name);
 
     if (res) {
       setError(res);

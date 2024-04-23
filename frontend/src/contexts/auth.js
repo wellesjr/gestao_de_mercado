@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = (email, password) => {
+  const signup = (email, password, name) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
     const hasUser = usersStorage?.filter((user) => user.email === email);
 
@@ -46,9 +46,9 @@ export const AuthProvider = ({ children }) => {
 
     let newUser;
     if (usersStorage) {
-      newUser = [...usersStorage, { email, password }];
+      newUser = [...usersStorage, {name, email, password }];
     } else {
-      newUser = [{ email, password }];
+      newUser = [{name, email, password }];
     }
 
     localStorage.setItem("users_bd", JSON.stringify(newUser));
