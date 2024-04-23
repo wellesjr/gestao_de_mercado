@@ -15,17 +15,6 @@ services:
     networks:
       - internal
 
-  server:
-    build:
-      context: .
-      target: nginx
-    ports:
-      - "8080:80"
-    depends_on:
-      - database
-    networks:
-      - internal
-
   backend:
     build:
       context: .
@@ -34,7 +23,19 @@ services:
       - "9000:9000"
     depends_on:
       - database
-      - server
+    networks:
+      - internal
+
+  server:
+    build:
+      context: .
+      target: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
+      - backend
+      - react
     networks:
       - internal
 
@@ -48,7 +49,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - database
+      - backend
     networks:
       - internal
 
