@@ -17,25 +17,24 @@ class UsuarioController {
             $senha = $_POST['senha'] ?? '';
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo json_encode([
+                return [
                     'success' => false,
                     'message' => 'Formato de email inválido.'
-                ]);
-                return;
+                ];
             }
 
             $successMessage = $this->usuarioService->addUsuario($nome, $email, $senha);
-            echo json_encode([
+            return[
                 'success' => $successMessage['success'],
                 'message' => $successMessage['message']
-            ]);
+            ];
 
         } catch (Exception $e) {
             http_response_code(500);
-            echo json_encode([
+            return[
                 'success' => false,
                 'message' => $e->getMessage()
-            ]);
+            ];
         }
     }
 }

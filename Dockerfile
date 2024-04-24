@@ -14,8 +14,19 @@ CMD ["npm", "start"]
 # Setup PHP Backend
 FROM php:8.2-fpm-alpine as php
 
-RUN apk add --no-cache postgresql-dev libpng-dev oniguruma-dev
+RUN apk add --no-cache $PHPIZE_DEPS postgresql-dev libpng-dev oniguruma-dev autoconf g++ make
 RUN docker-php-ext-install pdo pdo_pgsql mbstring gd 
+
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Configurações do Xdebug
+RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_port=9003" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.log=/var/www/html/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 RUN apk del --purge postgresql-dev libpng-dev oniguruma-dev
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

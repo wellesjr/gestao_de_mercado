@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Redireciona todas as solicitações para src/Http/Router.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ src/Http/Router.php [L]
