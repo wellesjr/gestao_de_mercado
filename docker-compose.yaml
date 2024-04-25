@@ -1,6 +1,24 @@
 version: '3.9'
 
 services:
+  
+  server:
+    build:
+      context: .
+      target: nginx
+    volumes:
+      - ./backend:/var/www/backend
+      - ./frontend:/usr/src/app:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    ports:
+      - "80:80"
+      - "8080:8080"
+    depends_on:
+      - database
+      - backend
+      - react
+    networks:
+      - internal
 
   database:
     image: postgres:latest
@@ -19,23 +37,10 @@ services:
     build:
       context: .
       target: php
-    ports:
-      - "9000:9000"
+    volumes:
+      - ./backend:/var/www/backend
     depends_on:
       - database
-    networks:
-      - internal
-
-  server:
-    build:
-      context: .
-      target: nginx
-    ports:
-      - "8080:80"
-    depends_on:
-      - database
-      - backend
-      - react
     networks:
       - internal
 
@@ -54,5 +59,5 @@ services:
       - internal
 
 networks:
- internal:
+  internal:
     driver: bridge
