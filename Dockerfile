@@ -27,11 +27,13 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 RUN { \
+        echo "zend_extension=xdebug.so"; \
         echo "xdebug.mode=debug"; \
         echo "xdebug.start_with_request=yes"; \
         echo "xdebug.client_host=host.docker.internal"; \
         echo "xdebug.client_port=9003"; \
         echo "xdebug.log=/var/www/backend/xdebug.log"; \
+        echo "xdebug.idekey=VSCODE"; \
     } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN apt-get purge -y $PHPIZE_DEPS && apt-get autoremove -y

@@ -1,13 +1,31 @@
 <?php
-include(__DIR__ . '/Http/Routers.php');
 
-use App\Http\Router;
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');
 
-define('URL', 'http://localhost');
+date_default_timezone_set("America/Sao_Paulo");
 
-$obRouter = new Router(URL);
+define('message_erro', json_encode(['message' => 'Rota não encontrada']));
 
-include(__DIR__ . '/Routes/api.php');
+var_dump($_SERVER['REQUEST_METHOD']);  
 
+if(isset($_GET['string'])) {
+    $path = explode('/', $_GET['path']);
+} else {
+   echo message_erro ;
+    return;
+}
 
-$obRouter->run()->sendResponse();
+if (isset($path[0])) {
+    $api = $path[0];
+} else {
+   echo message_erro; 
+    return;
+}
+
+$acao = isset($path[1]) ? $path[1] : '';
+$param = isset($path[2]) ? $path[2] : '';
+
+$requestMethod = $_SERVER['REQUEST_METHOD'];
+
+require_once 'Controller/UsuarioController.php';

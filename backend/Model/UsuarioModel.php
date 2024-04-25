@@ -1,15 +1,15 @@
 <?php
-namespace App\Model\Usuario;
-class Usuario {
+namespace App\Model;
+class UsuarioModel {
     private $id;
     private $nome;
     private $email;
     private $senha;
 
-    public function __construct($nome, $email, $senha) {
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->senha = $senha;
+    public function __construct($dados) {
+        $this->nome  = $dados['Nome'];
+        $this->email = $dados['Email'];
+        $this->senha = $dados['Senha'];
     }
 
     public function getNome() {
