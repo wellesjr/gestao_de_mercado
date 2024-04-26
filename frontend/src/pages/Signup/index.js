@@ -5,7 +5,7 @@ import * as C from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-const Signup = () => {
+const cadastre_se = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [emailConf, setEmailConf] = useState("");
@@ -76,4 +76,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default cadastre_se;

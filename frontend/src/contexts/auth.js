@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import axios from 'axios';
 
 export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
@@ -18,6 +19,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+
   const signin = (email, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
     const hasUser = usersStorage?.filter((user) => user.email === email);
@@ -36,34 +38,42 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = (email, password, name) => {
-    const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
-    const hasUser = usersStorage?.filter((user) => user.email === email);
-
-    if (hasUser?.length) {
-      return "Já tem uma conta com esse E-mail";
+  const signup = async (email, password, name) => {
+    console.log(email);
+    if (!email || !password || !name) {
+      return "Por favor, preencha todos os campos.";
     }
-
-    let newUser;
-    if (usersStorage) {
-      newUser = [...usersStorage, {name, email, password }];
-    } else {
-      newUser = [{name, email, password }];
+    let usersStorage = JSON.parse(localStorage.getItem("users_bd")) || [];
+    const hasUser = usersStorage.some(user => user.email === email);
+  
+    if (hasUser) {
+      return "Já existe uma conta com esse E-mail";
     }
+  
+    try {
+      const response = await axios.post('http://localhost/usuarios/cadastrar_usuario', { name, email, password });
+      return response
+      
+      if (response.status === 200) {
+        let newUser = [...usersStorage, { name, email, password }];
+        localStorage.setItem("users_bd", JSON.stringify(newUser));
 
-    localStorage.setItem("users_bd", JSON.stringify(newUser));
-    return;
+        return response.data.message;
+      } else {
+        throw new Error('Falha ao registrar o usuário no servidor');
+      }
+    } catch (error) {
+      return `Erro ao cadastrar usuário: ${error.message}`;
+    }
   };
-
+  
   const signout = () => {
     setUser(null);
     localStorage.removeItem("user_token");
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user, signed: !!user, signin, signup, signout }}
-    >
+    <AuthContext.Provider value={{ user, signed: !!user, signin, signup, signout }}>
       {children}
     </AuthContext.Provider>
   );
