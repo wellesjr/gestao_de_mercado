@@ -2,6 +2,7 @@
 namespace App\Service\Usuario;
 
 include_once 'Repository/UsuarioRepository.php';
+use App\Model\UsuarioModel;
 use App\Repository\UsuarioRepository;
 use Exception;
 
@@ -17,16 +18,15 @@ class UsuarioService {
                 ];
             }
 
-            $getUserbyEmail = (new UsuarioRepository())->findByEmail($newUser['email']); var_dump($getUserbyEmail);
+            $getUserbyEmail = (new UsuarioRepository())->findByEmail($newUser['email']);
             if ($getUserbyEmail !== null) {
                 return [
                     'success' => false,
                     'message' => 'Email já cadastrado.'
                 ];
             }
-
             $newUser = (new UsuarioRepository())->save($newUser);
-            if ($newUser) {
+            if (empty($newUser)) {
                 return [
                     'success' => false,
                     'message' => 'Erro ao cadastrar usuário.'
