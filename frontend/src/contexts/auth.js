@@ -1,5 +1,6 @@
+import axios from "axios";
+import { toast } from "react-toastify";
 import { createContext, useEffect, useState } from "react";
-import axios from 'axios';
 
 export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
@@ -13,12 +14,9 @@ export const AuthProvider = ({ children }) => {
       const hasUser = JSON.parse(usersStorage)?.filter(
         (user) => user.email === JSON.parse(userToken).email
       );
-      if (hasUser){
-        setUser(hasUser[0]);
-      }
+      if (hasUser) setUser(hasUser[0]);
     }
-  }, []);
-
+  },[]);
 
   const signin = (email, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
@@ -38,35 +36,37 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = async (email, password, name) => {
-    console.log(email);
-    if (!email || !password || !name) {
-      return "Por favor, preencha todos os campos.";
-    }
-    let usersStorage = JSON.parse(localStorage.getItem("users_bd")) || [];
-    const hasUser = usersStorage.some(user => user.email === email);
-  
-    if (hasUser) {
-      return "Já existe uma conta com esse E-mail";
-    }
-  
-    try {
-      const response = await axios.post('http://localhost/usuarios/cadastrar_usuario', { name, email, password });
-      return response
-      
-      if (response.status === 200) {
-        let newUser = [...usersStorage, { name, email, password }];
-        localStorage.setItem("users_bd", JSON.stringify(newUser));
+  const signup = async (email, password, nome ) => {
+    let newUser;
+    let usersStorage = JSON.parse(localStorage.getItem("users_bd"));
+    let hasUser = usersStorage?.filter((user) => user.email === email);
 
-        return response.data.message;
-      } else {
-        throw new Error('Falha ao registrar o usuário no servidor');
-      }
-    } catch (error) {
-      return `Erro ao cadastrar usuário: ${error.message}`;
+    if (hasUser?.length) {
+      return "Já tem uma conta com esse E-mail";
     }
+
+    await axios.post('http://localhost/usuarios/cadastrar_usuario', {
+      nome: nome,
+      email: email,
+      senha: password
+    },
+    { headers: {'Content-Type': 'application/json'}, responseType: 'json'})
+      .then(({ data }) => {
+        if(data.success == true){
+          if (usersStorage) {
+            newUser = [...usersStorage, { email, password }];
+          } else {
+            newUser = [{ email, password }];
+          }
+          localStorage.setItem("users_bd", JSON.stringify(newUser));
+          toast.success(data.message);
+        } else {
+          toast.error(data.message);
+        }
+        return data.success;
+    })
   };
-  
+
   const signout = () => {
     setUser(null);
     localStorage.removeItem("user_token");

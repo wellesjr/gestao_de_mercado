@@ -4,9 +4,15 @@ require_once 'vendor/autoload.php';
 
 use App\Helper\HelperRoutes;
 
-header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json');
+header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Credentials: true");
 
+if ($_SERVER['REQUEST_METHOD'] == "OPTIONS") {
+    exit(0);
+}
 date_default_timezone_set("America/Sao_Paulo");
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);

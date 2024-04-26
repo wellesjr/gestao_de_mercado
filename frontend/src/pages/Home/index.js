@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
+import Button from "../../components/Button/onClick";
 import useAuth from "../../hooks/useAuth";
 import * as C from "./style";
 

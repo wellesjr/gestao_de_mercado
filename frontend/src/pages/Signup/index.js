@@ -1,79 +1,58 @@
-import React, { useState } from "react";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
 import * as C from "./style";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
+import Input from "../../components/Input";
 
-const cadastre_se = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailConf, setEmailConf] = useState("");
-  const [senha, setSenha] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-
+const Signup = () => {
   const { signup } = useAuth();
+  const [form, setForm] = useState({
+    name: "",
+    senha: "",
+    email: "",
+    emailConf: "",
+  });
 
-  const handleSignup = () => {
-    if (!email | !emailConf | !senha) {
-      setError("Preencha todos os campos");
-      return;
-    } else if (email !== emailConf) {
-      setError("Os e-mails não são iguais");
-      return;
-    }
-
-    const res = signup(email, senha, name);
-
-    if (res) {
-      setError(res);
-      return;
-    }
-
-    alert("Usuário cadatrado com sucesso!");
-    navigate("/");
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let res = null;
+
+    let { name, email, emailConf, senha } = form
+
+    if (!name || !email || !senha || !emailConf) {
+      return toast.warn("Preencha todos os campos!");
+    } else if (email !== emailConf) {
+      return toast.warn("Os e-mails não são iguais");
+    }
+
+    await signup(email ,senha, name);
+
+  }
+    
   return (
     <C.Container>
       <C.Label>Gestão de Mercado</C.Label>
-      <C.Content>
-      <Input
-          type="text"
-          placeholder="Digite seu Nome"
-          value={name}
-          onChange={(e) => [setName(e.target.value), setError("")]}
-        />
-        <Input
-          type="email"
-          placeholder="Digite seu E-mail"
-          value={email}
-          onChange={(e) => [setEmail(e.target.value), setError("")]}
-        />
-        <Input
-          type="email"
-          placeholder="Confirme seu E-mail"
-          value={emailConf}
-          onChange={(e) => [setEmailConf(e.target.value), setError("")]}
-        />
-        <Input
-          type="password"
-          placeholder="Digite sua Senha"
-          value={senha}
-          onChange={(e) => [setSenha(e.target.value), setError("")]}
-        />
-        <C.labelError>{error}</C.labelError>
-        <Button Text="Inscrever-se" onClick={handleSignup} />
-        <C.LabelSignin>
-          Já tem uma conta?
-          <C.Strong>
-            <Link to="/">&nbsp;Entre</Link>
-          </C.Strong>
-        </C.LabelSignin>
-      </C.Content>
+        <C.Content onSubmit={handleSubmit} >
+          <Input type="text" name="name" placeholder="Digite seu Nome" value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} />
+          <Input type="email" name="email" placeholder="Digite seu E-mail" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} />
+          <Input type="email"  name="emailConf" placeholder="Confirme seu E-mail" value={form.emailConf} onChange={(e) => setForm({...form, emailConf: e.target.value})}  />
+          <Input type="password" name="senha" placeholder="Digite sua Senha" value={form.senha} onChange={(e) => setForm({...form, senha: e.target.value})} />
+          <C.Button type="submit">Inscrever-se</C.Button>
+          <C.LabelSignin>
+            Já tem uma conta?
+            <C.Strong><Link to="/">&nbsp;Entre</Link></C.Strong>
+          </C.LabelSignin>
+        </C.Content>
     </C.Container>
   );
 };
 
-export default cadastre_se;
+export default Signup;
