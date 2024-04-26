@@ -3,7 +3,7 @@ use App\Model\UsuarioModel;
 use App\Helper\HelperRoutes;
 use App\Service\Usuario\UsuarioService;
 
-if (HelperRoutes::getApi() === 'usuario') {
+if (HelperRoutes::getApi() === 'usuarios') {
     include_once 'Service/Usuario/UsuarioService.php';
 
     if (UsuarioService::verificar()) {

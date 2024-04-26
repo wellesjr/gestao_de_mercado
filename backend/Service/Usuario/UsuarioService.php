@@ -2,7 +2,7 @@
 namespace App\Service\Usuario;
 
 include_once 'Repository/UsuarioRepository.php';
-use App\Model\UsuarioModel;
+
 use App\Repository\UsuarioRepository;
 use Exception;
 
@@ -44,17 +44,4 @@ class UsuarioService {
             ];
         }
     }
-        // function createUser() {
-       
-    //         $newUser = new UsuarioModel($_POST);
-
-    //         
-
-    //         $successMessage = UsuarioService::addUsuario($newUser);
-    //         echo json_encode([
-    //             'success' => $successMessage['success'],
-    //             'message' => $successMessage['message']
-    //         ]);
-       
-    // }
 }
