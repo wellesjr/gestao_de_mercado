@@ -7,9 +7,9 @@ class UsuarioModel {
     private $senha;
 
     public function __construct($dados) {
-        $this->nome  = $dados['Nome'];
-        $this->email = $dados['Email'];
-        $this->senha = $dados['Senha'];
+        $this->nome  = isset($dados['nome'])  ? $dados['nome'] : null;
+        $this->email = isset($dados['email']) ? $dados['email'] : null;
+        $this->senha = isset($dados['senha']) ? $dados['senha'] : null;
     }
 
     public function getNome() {
@@ -22,5 +22,12 @@ class UsuarioModel {
 
     public function getSenha() {
         return $this->senha;
+    }
+    public function getDados() {
+        return [
+            'nome' => $this->nome,
+            'email' => $this->email,
+            'senha' => $this->senha
+        ];
     }
 }

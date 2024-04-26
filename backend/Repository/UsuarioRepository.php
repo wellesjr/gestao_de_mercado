@@ -1,7 +1,7 @@
 <?php
 namespace App\Repository;
 
-use \PDO;
+use PDO;
 use PDOException;
 use App\Model\UsuarioModel;
 
@@ -14,14 +14,14 @@ class UsuarioRepository {
 
     private function setConnection() {
         try {
-            $this->connection = new PDO('pgsql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASS'));
+            $this->connection = new PDO('pgsql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_NAME'] . $_ENV['DB_USER'] . $_ENV['DB_PASS']);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            return ("Erro de conexão: " . $e->getMessage());
+            echo json_encode(("Erro de conexão: " . $e->getMessage()));
         }
     }
     public function findByEmail($email) {
-        $stmt = $this->connection->prepare("SELECT * FROM usuario WHERE email = ?");
+        $stmt = $this->connection->prepare("SELECT * FROM usuario WHERE email LIKE = ?");
         $stmt->execute([$email]);
         $userData = $stmt->fetch();
 
