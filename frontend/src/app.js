@@ -4,6 +4,7 @@ import RoutesApp from "./routes";
 import { AuthProvider } from "./contexts/auth";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
     return (
         <AuthProvider> 

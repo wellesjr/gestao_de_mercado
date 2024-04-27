@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/onClick";
 import useAuth from "../../hooks/useAuth";
+import * as C from "./style";
 import Header from "../../components/Header";
-import Resume from "../../components/Resume";
-import Form from "../../components/Form/Home";
+import Form from "../../components/Form/Produtos";
 
-const Home = () => {
+const Produtos = () => {
   const { signout } = useAuth();
   const navigate = useNavigate();
 
-  const data = localStorage.getItem("transactions");
+  const data = localStorage.getItem("products");
   const [transactionsList, setTransactionsList] = useState(
     data ? JSON.parse(data) : []
   );
@@ -41,14 +42,20 @@ const Home = () => {
 
     setTransactionsList(newArrayTransactions);
 
-    localStorage.setItem("transactions", JSON.stringify(newArrayTransactions));
+    localStorage.setItem("products", JSON.stringify(newArrayTransactions));
   };
 
 
   return (
     <>
     <Header />
-    <Resume income={income} expense={expense} total={total} />
+    < C.Container>
+        <C.Content>
+        <Button Text="voltar" onClick={() => [navigate("/home")]} />
+        <C.Title>Cadastros</C.Title>
+        <Button Text="Sair" onClick={() => [signout(), navigate("/")]} />
+      </C.Content>
+    </C.Container>
     <Form
       handleAdd={handleAdd}
       transactionsList={transactionsList}
@@ -58,4 +65,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Produtos;
