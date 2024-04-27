@@ -9,7 +9,7 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
-export const Content = styled.div`
+export const Content = styled.form`
   gap: 15px;
   display: flex;
   align-items: center;
@@ -46,4 +46,17 @@ export const Strong = styled.strong`
     text-decoration: none;
     color: #676767;
   }
+`;
+export const Button = styled.button`
+  padding: 16px 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #046ee5;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  max-width: 350px;
 `;

@@ -29,7 +29,17 @@ class UsuarioRepository {
         $userData = $stmt->fetch();
 
         if (!empty($userData)) {
-            return new UsuarioModel($userData);
+            return $userData;
+        }
+        return null;
+    }
+    public function loginUser($user) {
+        $stmt = $this->connection->prepare("SELECT * FROM usuario WHERE email = ? ");
+        $stmt->execute([$user['email']]);
+        $userData = $stmt->fetch();
+
+        if (!empty($userData)) {
+            return $userData;
         }
         return null;
     }

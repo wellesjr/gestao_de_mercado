@@ -18,21 +18,36 @@ export const AuthProvider = ({ children }) => {
     }
   },[]);
 
-  const signin = (email, password) => {
+  const signin = async (email, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
     const hasUser = usersStorage?.filter((user) => user.email === email);
+    const token = Math.random().toString(36).substring(2);
 
     if (hasUser?.length) {
       if (hasUser[0].email === email && hasUser[0].password === password) {
-        const token = Math.random().toString(36).substring(2);
         localStorage.setItem("user_token", JSON.stringify({ email, token }));
         setUser({ email, password });
         return;
       } else {
-        return "E-mail ou senha incorretos";
+        toast.error("E-mail ou senha incorretos");
+        return;
       }
     } else {
-      return "Usuário não cadastrado";
+      await axios.post('http://localhost/usuarios/login', {
+        email: email,
+        senha: password
+      },
+      { headers: {'Content-Type': 'application/json'}, responseType: 'json'})
+        .then(({ data }) => {
+          if(data.success == true){
+            localStorage.setItem("user_token", JSON.stringify({token}));
+            setUser({ email, password });
+            toast.success(data.message);
+          } else {
+            toast.error(data.message);
+          }
+          return;
+      })
     }
   };
 
@@ -42,7 +57,8 @@ export const AuthProvider = ({ children }) => {
     let hasUser = usersStorage?.filter((user) => user.email === email);
 
     if (hasUser?.length) {
-      return "Já tem uma conta com esse E-mail";
+      toast.success("Já tem uma conta com esse E-mail");
+      return;
     }
 
     await axios.post('http://localhost/usuarios/cadastrar_usuario', {
@@ -63,7 +79,7 @@ export const AuthProvider = ({ children }) => {
         } else {
           toast.error(data.message);
         }
-        return data.success;
+        return data.message;
     })
   };
 

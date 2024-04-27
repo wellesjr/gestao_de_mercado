@@ -44,4 +44,36 @@ class UsuarioService {
             ];
         }
     }
+    public static function login ($user): array {
+        try {
+            if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
+                return [
+                    'success' => false,
+                    'message' => 'Formato de email inválido.'
+                ];
+            }
+            $getUserbyEmailandPassword = (new UsuarioRepository())->findByEmail($user['email']);
+            if(!empty($getUserbyEmailandPassword)){
+                if( password_verify($user['senha'], $getUserbyEmailandPassword['senha'])){
+                    return [
+                        'success' => true,
+                        'message' => 'Usuário logado com sucesso!'
+                    ];
+                } 
+                return [
+                    'success' => false,
+                    'message' => 'E-mail ou senha incorretos!'
+                ];
+            }
+            return [
+                'success' => false,
+                'message' => 'Usuário não encontrado!'
+            ];
+        } catch (Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
 }

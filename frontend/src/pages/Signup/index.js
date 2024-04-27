@@ -23,7 +23,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = null;
 
     let { name, email, emailConf, senha } = form
 

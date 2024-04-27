@@ -1,52 +1,44 @@
 import React, { useState } from "react";
 import Input from "../../components/Input";
-import Button from "../../components/Button/onClick";
 import * as C from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Signin = () => {
   const { signin } = useAuth();
   const navigate = useNavigate();
+  const [form, setForm] = useState({
+    email: "",
+    senha: "",
+  });
 
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [error, setError] = useState("");
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleLogin = () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    let { email, senha } = form
+  
     if (!email | !senha) {
-      setError("Preencha todos os campos");
-      return;
+      return toast.warn("Preencha todos os campos!");
     }
 
-    const res = signin(email, senha);
-
-    if (res) {
-      setError(res);
-      return;
-    }
-
+    await signin(email, senha);
     navigate("/home");
   };
 
   return (
     <C.Container>
       <C.Label>Gestão de Mercado</C.Label>
-      <C.Content>
-        <Input
-          type="email"
-          placeholder="Digite seu E-mail"
-          value={email}
-          onChange={(e) => [setEmail(e.target.value), setError("")]}
-        />
-        <Input
-          type="password"
-          placeholder="Digite sua Senha"
-          value={senha}
-          onChange={(e) => [setSenha(e.target.value), setError("")]}
-        />
-        <C.labelError>{error}</C.labelError>
-        <Button Text="Entrar" onClick={handleLogin} />
+      <C.Content onSubmit={handleLogin}>
+        <Input type="email" name="email" placeholder="Digite seu E-mail" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} />
+        <Input type="password" name="senha" placeholder="Digite sua Senha" value={form.senha} onChange={(e) => setForm({...form, senha: e.target.value})} />
+        <C.Button type="submit">Entrar</C.Button>
         <C.LabelSignup>
           Não tem uma conta?
           <C.Strong>
