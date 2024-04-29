@@ -33,8 +33,21 @@ Para acessar o sistema
 | :---------- | :--------- | :---------------------------------- |
 | `nome`      | `string`   | **Obrigatório**.  |
 | `email`     | `string`   | **Obrigatório**.  |
-| `senha`     | `string`   | **Obrigatório**.  |)
+| `senha`     | `string`   | **Obrigatório**.  |
 
+
+## Galeria
+
+###Login
+![App Screenshot](https://github.com/wellesjr/gestao_de_mercado/blob/main/frontend/src/assets/Captura%20de%20tela%202024-04-29%20102902.png)
+
+###Vendas
+![App Screenshot](https://github.com/wellesjr/gestao_de_mercado/blob/main/frontend/src/assets/Captura%20de%20tela%202024-04-29%20103053.png)
+
+###Cadastros
+![App Screenshot](https://github.com/wellesjr/gestao_de_mercado/blob/main/frontend/src/assets/Captura%20de%20tela%202024-04-29%20103207.png)
+![App Screenshot](https://github.com/wellesjr/gestao_de_mercado/blob/main/frontend/src/assets/Captura%20de%20tela%202024-04-29%20103251.png)
+![App Screenshot](https://github.com/wellesjr/gestao_de_mercado/blob/main/frontend/src/assets/Captura%20de%20tela%202024-04-29%20103312.png)
 
 ## Stack utilizada
 
