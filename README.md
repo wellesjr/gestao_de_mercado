@@ -16,10 +16,9 @@ Entre no diretório do projeto abra o terminal na pasta principal e rode o coman
 ```
 Para acessar o sistema
 
-```http
+```html
   http://localhost:8080
 ```
-
 
  
 ## Documentação da API
@@ -39,6 +38,6 @@ Para acessar o sistema
 
 ## Stack utilizada
 
-**Docker, Ngnix, Postres, PHP, React** 
+**Docker, Nginx, Postgres, PHP, React** 
 
 
