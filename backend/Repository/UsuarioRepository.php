@@ -3,7 +3,6 @@ namespace App\Repository;
 
 use PDO;
 use PDOException;
-use App\Model\UsuarioModel;
 
 class UsuarioRepository {
     private $connection;

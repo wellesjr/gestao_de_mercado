@@ -11,31 +11,81 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const [desc, setDesc] = useState("");
   const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("");
+  const [categoryDescription, setcategoryDescription] = useState("");
   const [isExpense, setExpense] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
   const generateID = () => Math.round(Math.random() * 1000);
 
-  const handleSave = () => {
-    if (!desc || !amount) {
-      toast.warn("Informe a descrição e o valor!");
-      return;
-    } else if (amount < 1) {
-      toast.error("O valor tem que ser positivo!");
-      return;
+  const handleSave = (type) => {
+
+    switch (type) {
+      case "category": return category();
+      case "imposto":  return imposto();
+      case "produto":  return produto();
     }
 
-    const transaction = {
-      id: generateID(),
-      desc: desc,
-      amount: amount,
-      expense: isExpense,
+    const category = () => {
+      if (!category) {
+        toast.warn("Informe uma categoria!");
+        return;
+      }
+      const transaction = {
+        id: generateID(),
+        desc: desc,
+        amount: amount,
+        expense: isExpense,
+      };
+  
+      handleAdd(transaction);
+  
+      setDesc("");
+      setAmount("");
+    };
+    const imposto = () => {
+      if (!desc || !amount) {
+        toast.warn("Informe a descrição e o valor!");
+        return;
+      } else if (amount < 1) {
+        toast.error("O valor tem que ser positivo!");
+        return;
+      }
+  
+      const transaction = {
+        id: generateID(),
+        desc: desc,
+        amount: amount,
+        expense: isExpense,
+      };
+  
+      handleAdd(transaction);
+  
+      setDesc("");
+      setAmount("");
+    };
+    const produto = () => {
+      if (!desc || !amount) {
+        toast.warn("Informe a descrição e o valor!");
+        return;
+      } else if (amount < 1) {
+        toast.error("O valor tem que ser positivo!");
+        return;
+      }
+  
+      const transaction = {
+        id: generateID(),
+        desc: desc,
+        amount: amount,
+        expense: isExpense,
+      };
+  
+      handleAdd(transaction);
+  
+      setDesc("");
+      setAmount("");
     };
 
-    handleAdd(transaction);
-
-    setDesc("");
-    setAmount("");
   };
   let options = [{label:"Produto 1", value:"1"}, {label:"Produto 2", value:"2"}, {label:"Produto 3", value:"3"}];
 
@@ -51,12 +101,12 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
         <TabPanel>
           <C.Container>
             <C.InputContent>
-              <Input type="text" placeholder="Nome" value={desc} onChange={(e) => setDesc(e.target.value)} />
+              <Input type="text" placeholder="Nome" value={category} onChange={(e) => setCategory(e.target.value)} />
             </C.InputContent>
             <C.InputContent>
-              <Input type="text" placeholder="Descrição" value={desc} onChange={(e) => setDesc(e.target.value)} />
+              <Input type="text" placeholder="Descrição" value={categoryDescription} onChange={(e) => setcategoryDescription(e.target.value)} />
             </C.InputContent>
-            <Button Text="ADICIONAR" onClick={handleSave} />
+            <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "category")} />
           </C.Container>
           <Grid itens={transactionsList} setItens={setTransactionsList} />
         </TabPanel>
@@ -66,12 +116,12 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             <Select name="Categoria" value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} options={options} placeholder={"Selecione a categoria"} />
             </C.InputContent>
             <C.InputContent>
-              <Input type="number" placeholder="Imposto %" value={desc} onChange={(e) => setDesc(e.target.value)} />
-            </C.InputContent>
-            <C.InputContent>
               <Input type="number" placeholder="Valor" value={amount} onChange={(e) => setAmount(e.target.value)} />
             </C.InputContent>
-            <Button Text="ADICIONAR" onClick={handleSave} Class="addImposto" />
+            <C.InputContent>
+              <Input type="number" placeholder="Imposto %" value={desc} onChange={(e) => setDesc(e.target.value)} />
+            </C.InputContent>
+            <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "imposto")} Class="addImposto" />
           </C.Container>
           <Grid itens={transactionsList} setItens={setTransactionsList} />
         </TabPanel>
@@ -92,7 +142,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
               <C.Input type="radio" id="rExpenses" name="group1" onChange={() => setExpense(!isExpense)} />
               <C.Label htmlFor="rExpenses">Saída</C.Label>
             </C.RadioGroup>
-            <Button Text="ADICIONAR" onClick={handleSave} />
+            <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "produto")} />
           </C.Container>
           <Grid itens={transactionsList} setItens={setTransactionsList} />
         </TabPanel>

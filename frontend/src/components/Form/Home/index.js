@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Grid from "../../Grid/Produtos";
 import * as C from "./style";
 import Select from "../../Button/Select";
+import Button from "../../Button/onClick";
 import Input from "../../Input";
 import { toast } from "react-toastify";
 
@@ -52,7 +53,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
           <C.Input type="radio" id="rExpenses" name="group1" onChange={() => setExpense(!isExpense)} />
           <C.Label htmlFor="rExpenses">Venda</C.Label>
         </C.RadioGroup>
-        <C.Button Text="ADICIONAR" onClick={handleSave} />
+        <Button Text="ADICIONAR" onClick={handleSave} />
       </C.Container>
       <Grid itens={transactionsList} setItens={setTransactionsList} />
     </>

@@ -1,10 +1,10 @@
 <?php
 use App\Model\UsuarioModel;
 use App\Helper\HelperRoutes;
-use App\Service\Usuario\UsuarioService;
+use App\Service\UsuarioService;
 
 if (HelperRoutes::getApi() === 'usuarios') {
-    include_once 'Service/Usuario/UsuarioService.php';
+    include_once 'Service/UsuarioService.php';
 
     if (UsuarioService::verificar()) {
         if (HelperRoutes::getMethod() === "GET") {
@@ -21,9 +21,6 @@ if (HelperRoutes::getApi() === 'usuarios') {
             if (HelperRoutes::getAction() === 'login'){
                 echo json_encode(UsuarioService::login($user));
             }
-        }
-        if ((HelperRoutes::getMethod() === "POST" && isset($_POST['_method'])) && $_POST['_method'] === "PUT") {
-          
         }
         if ((HelperRoutes::getMethod() === "POST" && isset($_POST['_method'])) && $_POST['_method'] === "DELETE") {
             

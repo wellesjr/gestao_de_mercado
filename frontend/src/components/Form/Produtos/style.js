@@ -9,7 +9,7 @@ export const Container = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
-  padding: 15px 0px;
+  padding: 15px 15px;
   gap: 10px;
 
   @media (max-width: 750px) {

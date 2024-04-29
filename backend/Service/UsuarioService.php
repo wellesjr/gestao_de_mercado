@@ -1,10 +1,10 @@
 <?php
-namespace App\Service\Usuario;
+namespace App\Service;
 
 include_once 'Repository/UsuarioRepository.php';
 
-use App\Repository\UsuarioRepository;
 use Exception;
+use App\Repository\UsuarioRepository;
 
 class UsuarioService {
     public static function verificar(){return true;}
