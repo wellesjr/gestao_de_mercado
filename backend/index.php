@@ -22,6 +22,8 @@ HelperRoutes::getSegments();
 
 if (!empty(HelperRoutes::getApi())) {
     require_once 'Controller/UsuarioController.php';
+    require_once 'Controller/ProdutoController.php';
+    require_once 'Helper/Constants.php';
 } else {
     echo json_encode(['success' => false, 'message' => 'Rota não encontrada']);
 }

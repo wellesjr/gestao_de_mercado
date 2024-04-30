@@ -2,8 +2,10 @@ import './css.css';
 import Input from "../../Input";
 import * as C from "./style";
 import Grid from "../../Grid/Produtos";
-import Select from '../../Button/Select';
 import Button from "../../Button/onClick";
+import Select from '../../Button/Select';
+import GridImposto from '../../Grid/Impostos';
+import GridCategorias from '../../Grid/Categorias';
 import { toast } from "react-toastify";
 import React, { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -108,7 +110,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             </C.InputContent>
             <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "category")} />
           </C.Container>
-          <Grid itens={transactionsList} setItens={setTransactionsList} />
+          <GridCategorias itens={transactionsList} setItens={setTransactionsList} />
         </TabPanel>
         <TabPanel>
           <C.Container>
@@ -116,14 +118,11 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             <Select name="Categoria" value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} options={options} placeholder={"Selecione a categoria"} />
             </C.InputContent>
             <C.InputContent>
-              <Input type="number" placeholder="Valor" value={amount} onChange={(e) => setAmount(e.target.value)} />
-            </C.InputContent>
-            <C.InputContent>
               <Input type="number" placeholder="Imposto %" value={desc} onChange={(e) => setDesc(e.target.value)} />
             </C.InputContent>
             <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "imposto")} Class="addImposto" />
           </C.Container>
-          <Grid itens={transactionsList} setItens={setTransactionsList} />
+          <GridImposto itens={transactionsList} setItens={setTransactionsList} />
         </TabPanel>
         <TabPanel>
           <C.Container>
@@ -134,14 +133,11 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
               <Input type="text" placeholder="Descrição" value={desc} onChange={(e) => setDesc(e.target.value)} />
             </C.InputContent>
             <C.InputContent>
+            <Select name="Categoria" value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} options={options} placeholder={"Selecione a categoria"} />
+            </C.InputContent>
+            <C.InputContent>
               <Input type="number" placeholder="Valor" value={amount} onChange={(e) => setAmount(e.target.value)} />
             </C.InputContent>
-            <C.RadioGroup>
-              <C.Input type="radio" id="rIncome" defaultChecked name="group1" onChange={() => setExpense(!isExpense)} />
-              <C.Label htmlFor="rIncome">Entrada</C.Label>
-              <C.Input type="radio" id="rExpenses" name="group1" onChange={() => setExpense(!isExpense)} />
-              <C.Label htmlFor="rExpenses">Saída</C.Label>
-            </C.RadioGroup>
             <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "produto")} />
           </C.Container>
           <Grid itens={transactionsList} setItens={setTransactionsList} />

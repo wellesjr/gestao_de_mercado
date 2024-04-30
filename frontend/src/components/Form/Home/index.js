@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Grid from "../../Grid/Produtos";
+import Grid from "../../Grid/Home";
 import * as C from "./style";
 import Select from "../../Button/Select";
 import Button from "../../Button/onClick";
