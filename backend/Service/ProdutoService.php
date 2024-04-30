@@ -44,7 +44,7 @@ class ProdutoService {
 
     public static function addImposto($dados): array {
         try {
-            $impostoExistente = (new ProdutoRepository())->getImpostoByNome($dados['nome'],$dados['categoria_id']);
+            $impostoExistente = (new ProdutoRepository())->getImpostoByNomeAndCategoria($dados['nome'],$dados['categoria_id']);
             if (!empty($impostoExistente)) {
                 return [
                     'success' => false,
