@@ -16,6 +16,7 @@ if (HelperRoutes::getApi() === 'produtos') {
     $dados = json_decode(file_get_contents("php://input"), true);
             
     if (ProdutoService::verificar()) {
+        include_once 'Model/VendasModel.php';
         if (HelperRoutes::getMethod() === "GET") {
             $caminho = HelperRoutes::getAction();
             echo json_encode(ProdutoService::listar($caminho));

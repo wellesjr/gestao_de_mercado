@@ -48,7 +48,8 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
 
     const transaction = {
       id: generateID(),
-      amount: amount,
+      quantidade: amount,
+      produto_id: selectedValue,
     };
 
     handleAdd(transaction);

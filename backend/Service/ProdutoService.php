@@ -101,9 +101,11 @@ class ProdutoService {
                     'message' => 'Erro ao cadastrar venda.'
                 ];
             }
+            $ultimaVenda = (new ProdutoRepository())->listarVendas(TABELA_VENDA);
             return [
                 'success' => true,
-                'message' => "Venda cadastrada com sucesso!"
+                'message' => "Venda cadastrada com sucesso!",
+                'dados' => $ultimaVenda[count($ultimaVenda) - 1]
             ];
         } catch (Exception $e) {
             return [

@@ -31,7 +31,7 @@ const Grid = ({ itens, setItens }) => {
   const onDelete = (ID) => {
     const newArray = itens.filter((transaction) => transaction.id !== ID);
     setItens(newArray);
-    localStorage.setItem("transactions", JSON.stringify(newArray));
+    localStorage.setItem("sales", JSON.stringify(newArray));
   };
 
   return (

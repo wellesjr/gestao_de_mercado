@@ -72,20 +72,20 @@ class ProdutoRepository {
      public function save($dados, $table) {
         switch($table){
             case TABELA_CATEGORIA:
-                $sql = "INSERT INTO ".TABELA_CATEGORIA." (nome, descricao, usuario_id) VALUES (?, ?, ?)";
-                $value = [$dados['nome'], $dados['descricao'], $dados['usuario_id']];
+                $sql = "INSERT INTO ".TABELA_CATEGORIA." (nome, descricao, usuario_id) VALUES (?, ?)";
+                $value = [$dados['nome'], $dados['descricao']];
                 break;
             case TABELA_IMPOSTO:
-                $sql = "INSERT INTO ".TABELA_IMPOSTO." (usuario_id, categoria_id, percentual) VALUES (?, ?, ?)";
-                $value = [$dados['usuario_id'], $dados['categoria_id'], $dados['percentual']];
+                $sql = "INSERT INTO ".TABELA_IMPOSTO."categoria_id, percentual) VALUES (?, ?)";
+                $value = [$dados['categoria_id'], $dados['percentual']];
                 break;
             case TABELA_PRODUTO:
-                $sql = "INSERT INTO ".TABELA_PRODUTO." (nome, usuario_id, categoria_id, descricao) VALUES (?, ?, ?, ?)";
-                $value = [$dados['nome'], $dados['usuario_id'], $dados['categoria_id'], $dados['descricao']];
+                $sql = "INSERT INTO ".TABELA_PRODUTO." (nome, categoria_id, descricao) VALUES (?, ?, ?)";
+                $value = [$dados['nome'], $dados['categoria_id'], $dados['descricao']];
                 break;
             case TABELA_VENDA:
-                $sql = "INSERT INTO ".TABELA_VENDA." (usuario_id, produto_id, quantidade, valor_unitario, valor_imposto) VALUES (?, ?, ?, ?, ?)";
-                $value = [$dados['usuario_id'], $dados['produto_id'], $dados['quantidade'], $dados['valor_unitario'], $dados['valor_imposto']];
+                $sql = "INSERT INTO ".TABELA_VENDA." (produto_id, quantidade) VALUES (?, ?)";
+                $value = [ $dados['produto_id'], $dados['quantidade']];
                 break;
         }
 
@@ -96,7 +96,7 @@ class ProdutoRepository {
     }
 
 
-    public function listarVendas($table) {
+    public function listarVendas($table, $limit = null) {
         $sql = "SELECT categoria.nome as nomeCategoria,
         produtos.nome as nomeProduto,
         produtos.descricao,
@@ -109,7 +109,8 @@ class ProdutoRepository {
            JOIN produtos ON ".$table.".produto_id = produtos.id 
            JOIN categoria ON produtos.categoria_id = categoria.id 
            JOIN imposto ON imposto.categoria_id = categoria.id 
-           GROUP BY ".$table.".id, categoria.nome, produtos.nome, produtos.valor, imposto.percentual, vendas.quantidade, produtos.descricao";
+           GROUP BY ".$table.".id, categoria.nome, produtos.nome, produtos.valor, imposto.percentual, vendas.quantidade, produtos.descricao
+           ORDER BY ".$table.".id ASC " . ( !empty($limit) ? "LIMIT " . $limit : "" );
 
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
