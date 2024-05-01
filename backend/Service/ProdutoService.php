@@ -129,7 +129,7 @@ class ProdutoService {
                         'data' => $categorias
                     ];
                 case "listar_imposto": 
-                    $impostos = (new ProdutoRepository())->listar(TABELA_IMPOSTO);
+                    $impostos = (new ProdutoRepository())->listarImposto(TABELA_IMPOSTO);
                     if (empty($impostos)) {
                         return [
                             'success' => false,
@@ -141,7 +141,7 @@ class ProdutoService {
                         'data' => $impostos
                     ];
                 case "listar_produto":
-                    $produtos = (new ProdutoRepository())->listar(TABELA_PRODUTO);
+                    $produtos = (new ProdutoRepository())->listarProdutos(TABELA_PRODUTO);
                     if (empty($produtos)) {
                         return [
                             'success' => false,
@@ -153,7 +153,7 @@ class ProdutoService {
                         'data' => $produtos
                     ];
                 case "listar_vendas":
-                    $vendas = (new ProdutoRepository())->listar(TABELA_VENDA);
+                    $vendas = (new ProdutoRepository())->listarVendas(TABELA_VENDA);
                     if (empty($vendas)) {
                         return [
                             'success' => false,

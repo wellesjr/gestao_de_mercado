@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import GridItem from "../../GridItem/Categoria";
 import * as C from "./style";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Grid = ({ itens, setItens }) => {
   const fetchCategories = async () => {
@@ -9,7 +10,7 @@ const Grid = ({ itens, setItens }) => {
       const response = await axios.get("http://localhost/produtos/listar_categoria",{responseType: 'json'});
       return response.data;
     } catch (error) {
-      console.error("Error fetching categories:", error);
+      toast.error("Error fetching categories:", error);
       return [];
     }
   };
@@ -18,7 +19,7 @@ const Grid = ({ itens, setItens }) => {
     const fetchData = async () => {
       let data = await fetchCategories();
       if (data.success === false) {
-        TransformStream.error(data.message);
+        toast.error(data.message);
         return;
       }
       setItens(data.data);

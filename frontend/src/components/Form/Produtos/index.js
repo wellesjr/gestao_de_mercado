@@ -7,16 +7,47 @@ import Select from '../../Button/Select';
 import GridImposto from '../../Grid/Impostos';
 import GridCategorias from '../../Grid/Categorias';
 import { toast } from "react-toastify";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import axios from "axios";
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
-  const [desc, setDesc] = useState("");
-  const [amount, setAmount] = useState("");
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get("http://localhost/produtos/listar_categoria",{responseType: 'json'});
+      return response.data;
+    } catch (error) {
+      toast.error("Error ao buscar categorias:", error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let data = await fetchCategories();
+      if (data.success === false) {
+        toast.error(data.message);
+        return;
+      }
+      categoryOptions(data.data);
+    };
+  
+    fetchData();
+  }, []);
+
   const [category, setCategory] = useState("");
   const [categoryDescription, setcategoryDescription] = useState("");
-  const [isExpense, setExpense] = useState(false);
+  
+  const [options, categoryOptions] = useState([]);
+
   const [selectedValue, setSelectedValue] = useState('');
+  const [tax, setTax] = useState("");
+  const [selectedValueTax, setSelectedValueTax] = useState('');
+
+
+  const [desc, setDesc] = useState("");
+  const [amount, setAmount] = useState("");
+  const [isExpense, setExpense] = useState(false);
 
   const generateID = () => Math.round(Math.random() * 1000);
 
@@ -35,11 +66,10 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
       }
       const transaction = {
         id: generateID(),
-        desc: desc,
-        amount: amount,
-        expense: isExpense,
+        nome: category,
+        desc: categoryDescription,
       };
-  
+
       handleAdd(transaction, category);
   
       setDesc("");
@@ -91,8 +121,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
     };
 
   };
-  let options = [{label:"Produto 1", value:"1"}, {label:"Produto 2", value:"2"}, {label:"Produto 3", value:"3"}];
-
+ 
   return (
     <>
       <Tabs>
@@ -117,10 +146,10 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
         <TabPanel>
           <C.Container>
             <C.InputContent>
-            <Select name="Categoria" value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} options={options} placeholder={"Selecione a categoria"} />
+            <Select name="Categoria" value={selectedValueTax} onChange={(e) => setSelectedValueTax(e.target.value)} options={options} placeholder={"Selecione a categoria"} />
             </C.InputContent>
             <C.InputContent>
-              <Input type="number" placeholder="Imposto %" value={desc} onChange={(e) => setDesc(e.target.value)} />
+              <Input type="number" placeholder="Imposto %" value={tax} onChange={(e) => setTax(e.target.value)} />
             </C.InputContent>
             <Button Text="ADICIONAR" onClick={(e) => handleSave(e, "imposto")} Class="addImposto" />
           </C.Container>

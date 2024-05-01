@@ -1,42 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "../../Grid/Home";
 import * as C from "./style";
 import Select from "../../Button/Select";
 import Button from "../../Button/onClick";
 import Input from "../../Input";
 import { toast } from "react-toastify";
-
+import axios from "axios";
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
-  const [selectedValue, setSelectedValue] = useState('');
-  const [desc, setDesc] = useState("");
+  const fetchProdutos = async () => {
+    try {
+      const response = await axios.get("http://localhost/produtos/listar_produto",{responseType: 'json'});
+      return response.data;
+    } catch (error) {
+      toast.error("Error ao buscar produtos:", error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let data = await fetchProdutos();
+      if (data.success === false) {
+        toast.error(data.message);
+        return;
+      }
+      productsOptions(data.data);
+    };
+  
+    fetchData();
+  }, []);
+
   const [amount, setAmount] = useState("");
-  const [isExpense, setExpense] = useState(false);
+  const [options, productsOptions] = useState([]);
+  const [selectedValue, setSelectedValue] = useState('');
 
   const generateID = () => Math.round(Math.random() * 1000);
 
   const handleSave = () => {
-    if (!desc || !amount) {
-      toast.warn("Informe a descrição e o valor!");
+    if (!selectedValue || !amount) {
+      toast.warn("Selecione o produto e informe a quantidade!");
       return;
     } else if (amount < 1) {
-      toast.error("O valor tem que ser positivo!");
+      toast.error("A quantidade tem que ser positivo!");
       return;
     }
 
     const transaction = {
       id: generateID(),
-      desc: desc,
       amount: amount,
-      expense: isExpense,
     };
 
     handleAdd(transaction);
-    setDesc("");
     setAmount("");
+    setSelectedValue("");
   };
 
-  let options = [{label:"Produto 1", value:"1"}, {label:"Produto 2", value:"2"}, {label:"Produto 3", value:"3"}];
   
   return (
     <>

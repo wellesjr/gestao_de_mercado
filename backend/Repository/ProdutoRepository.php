@@ -43,43 +43,77 @@ class ProdutoRepository {
         $this->closeConnection();
         return $data;
     }
-
-    public function getCategoriaById($id) {
-        $sql = "SELECT * FROM" . TABELA_CATEGORIA . " WHERE id = ?";
+    public function listarImposto($table) {
+        $sql = "SELECT categoria.nome, imposto.* FROM " . $table . " JOIN categoria ON " . $table . ".categoria_id = categoria.id";
         $stmt = $this->connection->prepare($sql);
-        $stmt->execute([$id]);
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->closeConnection();
+        return $data;
+    }
+    
+    public function listarProdutos($table) {
+        $sql = "SELECT categoria.nome as nomeCategoria, 
+                       ROUND($table.valor, 2) as originalValue, 
+                       imposto.percentual as taxPercent,
+                       ROUND($table.valor * (1 + imposto.percentual / 100.0), 2) as valorImposto, 
+                       $table.* 
+                FROM $table 
+                JOIN categoria ON $table.categoria_id = categoria.id 
+                JOIN imposto ON imposto.categoria_id = categoria.id 
+                GROUP BY categoria.nome, $table.id, imposto.percentual, $table.valor";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->closeConnection();
         return $data;
     }
 
-    public function getImpostoByNomeAndCategoria($nome, $categoria_id) {
-        $sql = "SELECT * FROM" . TABELA_IMPOSTO . " WHERE nome = ? AND categoria_id = ?";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->execute([$nome, $categoria_id]);
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->closeConnection();
-        return $data;
-    }
-
-    public function save($dados, $table) {
+     public function save($dados, $table) {
         switch($table){
             case TABELA_CATEGORIA:
-                $sql = "INSERT INTO" . TABELA_CATEGORIA  . " (nome, descricao, usuario_id) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO ".TABELA_CATEGORIA." (nome, descricao, usuario_id) VALUES (?, ?, ?)";
                 $value = [$dados['nome'], $dados['descricao'], $dados['usuario_id']];
+                break;
             case TABELA_IMPOSTO:
-                $sql = "INSERT INTO" . TABELA_IMPOSTO . " (usuario_id, categoria_id, percentual) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO ".TABELA_IMPOSTO." (usuario_id, categoria_id, percentual) VALUES (?, ?, ?)";
                 $value = [$dados['usuario_id'], $dados['categoria_id'], $dados['percentual']];
+                break;
             case TABELA_PRODUTO:
-                $sql = "INSERT INTO" . TABELA_PRODUTO . " (nome, usuario_id, categoria_id, descricao) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO ".TABELA_PRODUTO." (nome, usuario_id, categoria_id, descricao) VALUES (?, ?, ?, ?)";
                 $value = [$dados['nome'], $dados['usuario_id'], $dados['categoria_id'], $dados['descricao']];
+                break;
             case TABELA_VENDA:
-                $sql = "INSERT INTO" . TABELA_VENDA . " (usuario_id, produto_id, quantidade, valo_unitario, valor_imposto) VALUES (?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO ".TABELA_VENDA." (usuario_id, produto_id, quantidade, valor_unitario, valor_imposto) VALUES (?, ?, ?, ?, ?)";
                 $value = [$dados['usuario_id'], $dados['produto_id'], $dados['quantidade'], $dados['valor_unitario'], $dados['valor_imposto']];
+                break;
         }
 
         $stmt = $this->connection->prepare($sql);
         $data = $stmt->execute($value);
+        $this->closeConnection();
+        return $data;
+    }
+
+
+    public function listarVendas($table) {
+        $sql = "SELECT categoria.nome as nomeCategoria,
+        produtos.nome as nomeProduto,
+        produtos.descricao,
+        ROUND(produtos.valor, 2) as originalValue, 
+        imposto.percentual as taxPercent,
+        ROUND(produtos.valor * (1 + imposto.percentual / 100.0), 2) as valorImposto, 
+        ROUND(ROUND(produtos.valor * (1 + imposto.percentual / 100.0), 2) * " . $table . ".quantidade, 2) as valorTotal,
+        ".$table.".* 
+           FROM ".$table."
+           JOIN produtos ON ".$table.".produto_id = produtos.id 
+           JOIN categoria ON produtos.categoria_id = categoria.id 
+           JOIN imposto ON imposto.categoria_id = categoria.id 
+           GROUP BY ".$table.".id, categoria.nome, produtos.nome, produtos.valor, imposto.percentual, vendas.quantidade, produtos.descricao";
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->closeConnection();
         return $data;
     }
