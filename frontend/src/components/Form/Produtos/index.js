@@ -23,14 +23,14 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const handleSave = (type) => {
 
     switch (type) {
-      case "category": return category();
+      case "category": return categories();
       case "imposto":  return imposto();
       case "produto":  return produto();
     }
 
-    const category = () => {
+    const categories = () => {
       if (!category) {
-        toast.warn("Informe uma categoria!");
+        toast.warn("Informe o nome da categoria!");
         return;
       }
       const transaction = {
@@ -40,11 +40,12 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
         expense: isExpense,
       };
   
-      handleAdd(transaction);
+      handleAdd(transaction, category);
   
       setDesc("");
       setAmount("");
     };
+
     const imposto = () => {
       if (!desc || !amount) {
         toast.warn("Informe a descrição e o valor!");
@@ -66,6 +67,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
       setDesc("");
       setAmount("");
     };
+
     const produto = () => {
       if (!desc || !amount) {
         toast.warn("Informe a descrição e o valor!");

@@ -1,8 +1,8 @@
 <?php
 namespace App\Service;
 
-include_once 'Helper/Constants.php';
-include_once 'Repository/UsuarioRepository.php';
+require_once 'Helper/Constantes.php';
+include_once 'Repository/ProdutoRepository.php';
 
 use Exception;
 use App\Helper\HelperRoutes;

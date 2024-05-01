@@ -35,6 +35,7 @@ export const ContainerBody = styled.div`
 export const InputContent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Label = styled.label``;

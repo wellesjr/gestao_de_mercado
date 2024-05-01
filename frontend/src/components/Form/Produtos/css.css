@@ -55,6 +55,7 @@
   
   .react-tabs__tab-panel {
     display: none;
+    width: 100%;
   }
   
   .react-tabs__tab-panel--selected {

@@ -1,5 +1,5 @@
 import React from "react";
-import GridItem from "../../GridItem/Home";
+import GridItem from "../../GridItem/Imposto";
 import * as C from "./style";
 
 const Grid = ({ itens, setItens }) => {

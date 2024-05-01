@@ -12,10 +12,6 @@ use App\Service\UsuarioService;
 
 if (HelperRoutes::getApi() === 'produtos') {
     include_once 'Service/ProdutoService.php';
-    include_once 'Model/vendasModel.php';
-    include_once 'Model/ImpostoModel.php';
-    include_once 'Model/ProdutoModel.php';
-    include_once 'Model/CategoriaModel.php';
 
     $dados = json_decode(file_get_contents("php://input"), true);
             
@@ -43,9 +39,7 @@ if (HelperRoutes::getApi() === 'produtos') {
                 $vendas = (new VendasModel($dados))->getDadosVenda();
                 echo json_encode(ProdutoService::addVenda($vendas));
             }
-
-        }
-        if ((HelperRoutes::getMethod() === "POST" && isset($_POST['_method'])) && $_POST['_method'] === "DELETE") {
+            //sof delete
             if (HelperRoutes::getAction() === 'deletar_categoria'){
                 $categoria = (new CategoriaModel($dados))->getDadosCategoria();
                 echo json_encode(ProdutoService::excluiCategoria($categoria));
@@ -62,6 +56,7 @@ if (HelperRoutes::getApi() === 'produtos') {
                 $vendas = (new VendasModel($dados))->getDadosVenda();
                 echo json_encode(UsuarioService::excluiVendas($vendas));
             }
+
         }
     } else {
         echo json_encode(['success' => false, 'message' => 'Rota não encontrada']);

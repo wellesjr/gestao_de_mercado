@@ -22,7 +22,7 @@ class ProdutoRepository {
             echo json_encode(("Erro de conexão: " . $e->getMessage()));
         }
     }
-    private public function closeConnection() {
+    private function closeConnection() {
         $this->connection = null;
     }
 
@@ -36,7 +36,7 @@ class ProdutoRepository {
     }
 
    public function listar($table) {
-        $sql = "SELECT * FROM" . $table;
+        $sql = "SELECT * FROM " . $table;
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
