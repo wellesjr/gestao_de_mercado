@@ -29,9 +29,8 @@ export const Content = styled.div`
   gap: 15px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  max-width: 350px;
-  height: 215px;
+  height: 80px;
   justify-content: space-between;
 `;

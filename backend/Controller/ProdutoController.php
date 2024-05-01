@@ -21,18 +21,9 @@ if (HelperRoutes::getApi() === 'produtos') {
             
     if (ProdutoService::verificar()) {
         if (HelperRoutes::getMethod() === "GET") {
-            if (HelperRoutes::getAction() === 'listar_vendas'){
-                echo json_encode(ProdutoService::listarVendas());
-            }
-            if (HelperRoutes::getAction() === 'listar_produtos'){
-                echo json_encode(ProdutoService::listarProdutos());
-            }
-            if (HelperRoutes::getAction() === 'listar_categoria'){
-                echo json_encode(ProdutoService::listarCategorias());
-            }
-            if (HelperRoutes::getAction() === 'listar_imposto_por_categoria'){
-                echo json_encode(ProdutoService::listarImpostosCategoria());
-            }
+            $caminho = HelperRoutes::getAction();
+            echo json_encode(ProdutoService::listar($caminho));
+            exit;
         }
 
         if (HelperRoutes::getMethod() === "POST" && !isset($_POST['_method'])) {
@@ -52,6 +43,7 @@ if (HelperRoutes::getApi() === 'produtos') {
                 $vendas = (new VendasModel($dados))->getDadosVenda();
                 echo json_encode(ProdutoService::addVenda($vendas));
             }
+
         }
         if ((HelperRoutes::getMethod() === "POST" && isset($_POST['_method'])) && $_POST['_method'] === "DELETE") {
             if (HelperRoutes::getAction() === 'deletar_categoria'){

@@ -47,12 +47,6 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
         <C.InputContent>
           <Input type="number" placeholder="Quantidade" value={amount} onChange={(e) => setAmount(e.target.value)} />
         </C.InputContent>
-        <C.RadioGroup>
-          <C.Input type="radio" id="rIncome" defaultChecked name="group1" onChange={() => setExpense(!isExpense)} />
-          <C.Label htmlFor="rIncome">Compra</C.Label>
-          <C.Input type="radio" id="rExpenses" name="group1" onChange={() => setExpense(!isExpense)} />
-          <C.Label htmlFor="rExpenses">Venda</C.Label>
-        </C.RadioGroup>
         <Button Text="ADICIONAR" onClick={handleSave} />
       </C.Container>
       <Grid itens={transactionsList} setItens={setTransactionsList} />

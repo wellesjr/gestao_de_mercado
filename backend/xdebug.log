@@ -40,3 +40,357 @@
 [8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
 [8] Log closed at 2024-04-28 00:01:58.198211
 
+[8] Log opened at 2024-04-30 18:01:14.314914
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:01:14.548962
+
+[9] Log opened at 2024-04-30 18:01:14.554653
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:01:14.886082
+
+[8] Log opened at 2024-04-30 18:01:39.721753
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:01:39.976778
+
+[9] Log opened at 2024-04-30 18:01:40.571784
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:01:40.820405
+
+[8] Log opened at 2024-04-30 18:03:23.708460
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:03:23.978534
+
+[9] Log opened at 2024-04-30 18:04:11.144507
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:04:11.390841
+
+[8] Log opened at 2024-04-30 18:04:23.111186
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:04:23.367378
+
+[9] Log opened at 2024-04-30 18:04:24.335255
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:04:24.582312
+
+[8] Log opened at 2024-04-30 18:07:01.292776
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:01.542778
+
+[9] Log opened at 2024-04-30 18:07:03.293597
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:03.534017
+
+[8] Log opened at 2024-04-30 18:07:04.223575
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:04.463299
+
+[9] Log opened at 2024-04-30 18:07:22.398451
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:22.637887
+
+[8] Log opened at 2024-04-30 18:07:25.872522
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:26.122328
+
+[9] Log opened at 2024-04-30 18:07:27.184245
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:27.424258
+
+[8] Log opened at 2024-04-30 18:07:33.358006
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:33.616736
+
+[9] Log opened at 2024-04-30 18:07:33.622800
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] Log opened at 2024-04-30 18:07:33.756922
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:33.863128
+
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:33.998603
+
+[10] Log opened at 2024-04-30 18:07:34.420764
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] Log opened at 2024-04-30 18:07:34.563394
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:07:34.674800
+
+[8] Log opened at 2024-04-30 18:07:34.733549
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:34.805598
+
+[10] Log opened at 2024-04-30 18:07:34.885123
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:34.974676
+
+[9] Log opened at 2024-04-30 18:07:35.026412
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:07:35.125583
+
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:35.274044
+
+[8] Log opened at 2024-04-30 18:07:35.324123
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] Log opened at 2024-04-30 18:07:35.400537
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:35.562205
+
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log opened at 2024-04-30 18:07:35.621488
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] Log closed at 2024-04-30 18:07:35.643879
+
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:35.877719
+
+[8] Log opened at 2024-04-30 18:07:50.807404
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:51.053970
+
+[10] Log opened at 2024-04-30 18:07:51.961988
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:07:52.224623
+
+[9] Log opened at 2024-04-30 18:07:58.294872
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:07:58.535020
+
+[8] Log opened at 2024-04-30 18:07:59.078583
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:07:59.317367
+
+[10] Log opened at 2024-04-30 18:08:00.297589
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:08:00.538270
+
+[9] Log opened at 2024-04-30 18:08:00.600779
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] Log opened at 2024-04-30 18:08:00.712883
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:08:00.840212
+
+[8] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[8] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:08:00.916229
+
+[10] Log opened at 2024-04-30 18:08:00.960548
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:08:01.227013
+
+[9] Log opened at 2024-04-30 18:08:16.542889
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:08:16.763126
+
+[8] Log opened at 2024-04-30 18:08:16.771082
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:08:17.113066
+
+[10] Log opened at 2024-04-30 18:08:19.889624
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:08:20.128378
+
+[9] Log opened at 2024-04-30 18:08:38.742708
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:08:38.986096
+
+[8] Log opened at 2024-04-30 18:08:39.345930
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:08:39.583856
+
+[10] Log opened at 2024-04-30 18:08:39.619114
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] Log opened at 2024-04-30 18:08:39.800613
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:08:39.861476
+
+[8] Log opened at 2024-04-30 18:08:39.962087
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:08:40.041762
+
+[10] Log opened at 2024-04-30 18:08:40.144042
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:08:40.200180
+
+[10] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:08:40.401921
+
+[9] Log opened at 2024-04-30 18:08:41.316462
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[9] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:08:41.425945
+
+[8] Log opened at 2024-04-30 18:47:03.712457
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[8] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:47:03.796186
+
+[10] Log opened at 2024-04-30 18:47:03.802347
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[10] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:47:03.928315
+
+[9] Log opened at 2024-04-30 18:49:32.418969
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[9] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 18:49:32.561972
+
+[8] Log opened at 2024-04-30 18:49:59.934236
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[8] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 18:50:00.081492
+
+[10] Log opened at 2024-04-30 18:52:03.077804
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[10] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 18:52:03.209588
+
+[9] Log opened at 2024-04-30 19:03:12.451116
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[9] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 19:03:12.751233
+
+[8] Log opened at 2024-04-30 19:17:20.028748
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[8] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 19:17:20.156233
+
+[10] Log opened at 2024-04-30 19:21:34.946215
+[10] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.10'
+[10] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[10] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[10] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[10] Log closed at 2024-04-30 19:21:35.111471
+
+[9] Log opened at 2024-04-30 19:23:02.096516
+[9] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.9'
+[9] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[9] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[9] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[9] Log closed at 2024-04-30 19:23:02.233563
+
+[8] Log opened at 2024-04-30 19:34:08.263798
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] WARN: Creating socket for 'host.docker.internal:9003', poll success, but error: Operation now in progress (29).
+[8] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-04-30 19:34:08.412872
+
+[7] Log opened at 2024-05-01 12:08:34.226731
+[7] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.7'
+[7] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[7] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[7] Log closed at 2024-05-01 12:08:34.464869
+
+[8] Log opened at 2024-05-01 12:08:34.474423
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-05-01 12:08:34.848554
+
+[7] Log opened at 2024-05-01 12:09:08.605737
+[7] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.7'
+[7] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[7] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[7] Log closed at 2024-05-01 12:09:08.961272
+
+[8] Log opened at 2024-05-01 13:02:38.338802
+[8] [Config] INFO: Control socket set up succesfully: '@xdebug-ctrl.8'
+[8] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9003.
+[8] [Step Debug] ERR: Time-out connecting to debugging client, waited: 200 ms. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[8] Log closed at 2024-05-01 13:02:38.768748
+

@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <>
     <Header />
-    <Resume income={income} expense={expense} total={total} />
+    <Resume />
     <Form
       handleAdd={handleAdd}
       transactionsList={transactionsList}

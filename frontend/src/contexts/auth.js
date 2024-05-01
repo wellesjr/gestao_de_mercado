@@ -19,12 +19,12 @@ export const AuthProvider = ({ children }) => {
   },[]);
 
   const signin = async (email, password) => {
+    const token   = Math.random().toString(36).substring(2);
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
     const hasUser = usersStorage?.filter((user) => user.email === email);
-    const token = Math.random().toString(36).substring(2);
 
     if (hasUser?.length) {
-      if (hasUser[0].email === email && hasUser[0].password === password) {
+      if (hasUser[0].email === email) {
         localStorage.setItem("user_token", JSON.stringify({ email, token }));
         setUser({ email, password });
         return;
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
         .then(({ data }) => {
           if(data.success == true){
             localStorage.setItem("user_token", JSON.stringify({token}));
-            setUser({ email, password });
+            setUser({ email, token });
             toast.success(data.message);
           } else {
             toast.error(data.message);
@@ -70,9 +70,9 @@ export const AuthProvider = ({ children }) => {
       .then(({ data }) => {
         if(data.success == true){
           if (usersStorage) {
-            newUser = [...usersStorage, { email, password }];
+            newUser = [...usersStorage, { email }];
           } else {
-            newUser = [{ email, password }];
+            newUser = [{ email }];
           }
           localStorage.setItem("users_bd", JSON.stringify(newUser));
           toast.success(data.message);

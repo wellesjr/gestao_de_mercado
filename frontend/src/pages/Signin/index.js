@@ -8,10 +8,7 @@ import { toast } from "react-toastify";
 const Signin = () => {
   const { signin } = useAuth();
   const navigate = useNavigate();
-  const [form, setForm] = useState({
-    email: "",
-    senha: "",
-  });
+  const [form, setForm] = useState({email: "", senha: ""});
 
   const handleChange = (e) => {
     setForm({

@@ -1,6 +1,7 @@
 <?php
 namespace App\Service;
 
+include_once 'Helper/Constants.php';
 include_once 'Repository/UsuarioRepository.php';
 
 use Exception;
@@ -112,4 +113,68 @@ class ProdutoService {
         }
     }
 
+    public static function listar(string $rota): array {
+        try {
+            switch($rota){
+                case "listar_categoria":
+                    $categorias = (new ProdutoRepository())->listar(TABELA_CATEGORIA);
+                    if (empty($categorias)) {
+                        return [
+                            'success' => false,
+                            'message' => 'Nenhuma categoria cadastrada.'
+                        ];
+                    }
+                    return [
+                        'success' => true,
+                        'data' => $categorias
+                    ];
+                case "listar_imposto": 
+                    $impostos = (new ProdutoRepository())->listar(TABELA_IMPOSTO);
+                    if (empty($impostos)) {
+                        return [
+                            'success' => false,
+                            'message' => 'Nenhum imposto cadastrado.'
+                        ];
+                    }
+                    return [
+                        'success' => true,
+                        'data' => $impostos
+                    ];
+                case "listar_produto":
+                    $produtos = (new ProdutoRepository())->listar(TABELA_PRODUTO);
+                    if (empty($produtos)) {
+                        return [
+                            'success' => false,
+                            'message' => 'Nenhum produto cadastrado.'
+                        ];
+                    }
+                    return [
+                        'success' => true,
+                        'data' => $produtos
+                    ];
+                case "listar_vendas":
+                    $vendas = (new ProdutoRepository())->listar(TABELA_VENDA);
+                    if (empty($vendas)) {
+                        return [
+                            'success' => false,
+                            'message' => 'Nenhuma venda cadastrada.'
+                        ];
+                    }
+                    return [
+                        'success' => true,
+                        'data' => $vendas
+                    ];
+                default:
+                    return [
+                        'success' => false,
+                        'message' => 'Rota não encontrada.'
+                    ];
+            }
+        } catch (Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
 }

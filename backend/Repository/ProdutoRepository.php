@@ -35,6 +35,15 @@ class ProdutoRepository {
         return $data;
     }
 
+   public function listar($table) {
+        $sql = "SELECT * FROM" . $table;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->closeConnection();
+        return $data;
+    }
+
     public function getCategoriaById($id) {
         $sql = "SELECT * FROM" . TABELA_CATEGORIA . " WHERE id = ?";
         $stmt = $this->connection->prepare($sql);
